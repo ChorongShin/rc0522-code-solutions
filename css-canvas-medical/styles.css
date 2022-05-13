@@ -1,0 +1,58 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.half-column {
+  width: calc(100%/2);
+}
+
+.column-two-thirds {
+  width: calc(200%/3);
+}
+
+.column-third {
+  width: calc(100%/3);
+}
+
+.blue-logo {
+  width: 30%;
+}
+
+.logo-margin {
+  margin-top: 1rem;
+}
+
+.nav-bar {
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.nav {
+  display: inline-block;
+  padding-right: 1rem;
+  color: grey;
+}
+
+.contact-button {
+  margin-top: 0.3rem;
+}
+
+.contact-us {
+  width: 60%;
+  height: 2.5rem;
+  background-color: #036;
+  color: white;
+  border-radius: 5%;
+  border-style: none;
+}
