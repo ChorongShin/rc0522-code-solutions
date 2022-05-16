@@ -301,7 +301,7 @@ a.product-link {
   background-image: url("images/product/product-header.jpg");
   background-size: cover;
   position: relative;
-  filter: brightness(10);
+  filter: opacity(90%) hue-rotate(-10deg);
 }
 
 .overlay-product > img {
@@ -312,15 +312,19 @@ a.product-link {
   font-family: Avenir, sans-serif;
   color: white;
   position: absolute;
-  top: 136px;
+  top: 120px;
   line-height: 1.5rem;
   font-size: 15px;
 }
 
 .product-heading {
   margin-top: 5rem;
-  margin-left: 4rem;
+  margin-left: 1.5rem;
   position: relative;
+}
+
+.product-one {
+  font-size: 2.2rem;
 }
 
 .overlay-product {
