@@ -301,7 +301,7 @@ a.product-link {
   background-image: url("images/product/product-header.jpg");
   background-size: cover;
   position: relative;
-  filter: opacity(97%);
+  filter: brightness(10);
 }
 
 .overlay-product > img {
