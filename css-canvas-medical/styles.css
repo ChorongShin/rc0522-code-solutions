@@ -340,6 +340,7 @@ a.product-link {
 .background-color {
   background-color: #f5f5f5;
   margin-top: 5rem;
+  padding-bottom: 3rem;
 }
 
 .history-image {
@@ -348,6 +349,7 @@ a.product-link {
 
 .patient-history {
   width: 100%;
+  padding-top: 3rem;
 }
 
 blockquote p::before {
@@ -361,4 +363,40 @@ blockquote p::after {
 a.learn-more-link {
   text-decoration: none;
   color: #696969;
+}
+
+.padding-quote {
+  padding-top: 3rem;
+}
+
+.care-text {
+  padding-left: 2.4rem;
+  padding-right: 3.7rem;
+}
+
+.care {
+  font-size: 2.1rem;
+}
+
+.care-description {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+.quote-box {
+  margin: 0;
+  padding-right: 1rem;
+  padding-left: 1.2rem;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.dr-steve {
+  margin: 0;
+  padding-right: 1rem;
+  padding-left: 1.2rem;
+  font-size: 1.2rem;
 }
