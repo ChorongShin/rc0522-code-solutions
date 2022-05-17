@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  width: 900px;
+  width: 1000px;
   margin: 0 auto;
 }
 
@@ -37,4 +37,5 @@ h3 {
 
 .paragraphs {
   margin-top: 2rem;
+  font-size: 0.8rem;
 }
