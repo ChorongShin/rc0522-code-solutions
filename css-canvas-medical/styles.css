@@ -362,7 +362,8 @@ blockquote p::after {
 
 a.learn-more-link {
   text-decoration: none;
-  color: #696969;
+  font-size: 1.2rem;
+  color: #036;
 }
 
 .padding-quote {
@@ -376,6 +377,8 @@ a.learn-more-link {
 
 .care {
   font-size: 2.1rem;
+  font-family: "Tiempos Headline", serif;
+  color: #585858;
 }
 
 .care-description {
@@ -391,7 +394,10 @@ a.learn-more-link {
 
 .quote {
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-family: "Tiempos Headline", serif;
+  color: #696969;
+  line-height: 1.8rem;
 }
 
 .dr-steve {
@@ -399,4 +405,5 @@ a.learn-more-link {
   padding-right: 1rem;
   padding-left: 1.2rem;
   font-size: 1.2rem;
+  color: #696969;
 }
