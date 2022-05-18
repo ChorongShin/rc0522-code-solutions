@@ -1,0 +1,47 @@
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+.container {
+  width: 1500px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.column-fifths {
+  width: calc(100%/5);
+}
+
+h1 {
+  text-align: center;
+}
+
+.adjust {
+  width: 90%;
+}
+
+.lv-size {
+  width: 90%;
+  height: 404px;
+  object-fit: cover;
+}
+
+.size {
+  color: lightgrey;
+}
+
+.price {
+  background-color: #ffefd5;
+}
+
+.info {
+  padding-right: 1rem;
+}
