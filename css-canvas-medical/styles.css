@@ -343,12 +343,12 @@ a.product-link {
 }
 
 .history-image {
-  margin-left: 3rem;
+  margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .patient-history {
-  width: 100%;
+  width: 90%;
   padding-left: 2rem;
   height: 550px;
   object-fit: contain;
@@ -373,9 +373,8 @@ a.learn-more-link {
 }
 
 .care-text {
-  padding-left: 2.4rem;
-  padding-right: 3.7rem;
   margin-left: 2rem;
+  margin-right: 3rem;
 }
 
 .care {
