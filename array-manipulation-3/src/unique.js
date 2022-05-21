@@ -1,11 +1,11 @@
 /* exported unique */
 
-// copy the original list
+// go through the items in the list
 // if the list of items have the same items,
-// add only one item.
+// return the list without duplicates.
 
 function unique(array) {
-  return array.filter((item, index, newArray) => {
-    return newArray.indexOf(item) === index;
+  return array.filter((item, index, array) => {
+    return array.indexOf(item) === index;
   });
 }

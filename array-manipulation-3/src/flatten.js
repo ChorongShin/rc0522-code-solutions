@@ -1,7 +1,11 @@
 /* exported flatten */
 
+// create a storage for items
+// return the storage adding other items
+
 function flatten(array) {
-  return [].concat(...array);
+  var newArray = [];
+  return newArray.concat(...array);
 }
 
 // OR
