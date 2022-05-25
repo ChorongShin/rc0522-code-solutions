@@ -6,43 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript Typing Tutor</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo&amp;family=Zilla+Slab&amp;display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="overlay"></div>
   <div class="container">
-    <p>
-      <span>g</span>
-      <span>r</span>
-      <span>u</span>
-      <span>m</span>
-      <span>p</span>
-      <span>y</span>
+    <div class="row">
+      <p class="character">
+        <span class="current type">g</span><span class="type">r</span><span class="type">u</span><span class="type">m</span><span class="type">p</span><span class="type">y</span><span class="type"> </span>
+        <span class="type">w</span><span class="type">i</span><span class="type">z</span><span class="type">a</span><span class="type">r</span><span class="type">d</span><span class="type">s</span><span class="type"> </span>
+        <span class="type">m</span><span class="type">a</span><span class="type">k</span><span class="type">e</span><span class="type"> </span>
+        <span class="type">t</span><span class="type">o</span><span class="type">x</span><span class="type">i</span><span class="type">c</span><span class="type"> </span>
+        <span class="type">b</span><span class="type">r</span><span class="type">e</span><span class="type">w</span><span class="type"></span>
+      </p>
+    </div>
+  </div>
 
-      <span> </span>
-
-      <span>w</span>
-      <span>i</span>
-      <span>z</span>
-      <span>a</span>
-      <span>r</span>
-      <span>d</span>
-      <span>s</span>
-      <span> </span>
-      <span>m</span>
-      <span>a</span>
-      <span>k</span>
-      <span>e</span>
-      <span> </span>
-      <span>t</span>
-      <span>o</span>
-      <span>x</span>
-      <span>i</span>
-      <span>c</span>
-      <span> </span>
-      <span>b</span>
-      <span>r</span>
-      <span>e</span>
-      <span>w</span>
-    </p>
+  <div class="modal hide">
+    <div class="open-modal">
+      <h2>Would you like to play it again?</h2>
+      <div class="no-button">
+        <button class="yes">Yes!</button>
+        <button class="no">NO</button>
+      </div>
+    </div>
   </div>
   <script src="main.js"></script>
 </body>
