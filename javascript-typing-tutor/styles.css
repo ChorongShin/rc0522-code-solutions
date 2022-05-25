@@ -1,0 +1,116 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.character {
+  font-size: 3rem;
+  font-family: arvo, serif;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.current {
+  border-bottom: solid black;
+}
+
+.type.on {
+  border-bottom: solid black;
+}
+
+.type.green {
+  color: #19cd1a;
+  border-bottom: none;
+}
+
+.type.green.off {
+  border-bottom: none;
+}
+
+.type.red {
+  color: red;
+  border-bottom: solid red;
+}
+
+/* modal */
+.modal {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.open-modal {
+  font-family: sans-serif;
+  width: 450px;
+  height: 200px;
+  padding-top: 45px;
+  text-align: center;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+button.yes {
+  margin-top: 30px;
+  padding: 0.5rem 2rem;
+  font-size: 1.4rem;
+  background-color: rgb(235 93 93);
+  color: white;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.overlay {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay.on {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0 0 0 / 50%);
+}
+
+button.no {
+  margin-top: 30px;
+  padding: 0.5rem 2rem;
+  font-size: 1.4rem;
+  background-color: rgb(74 74 232);
+  color: white;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
