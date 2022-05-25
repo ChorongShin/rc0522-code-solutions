@@ -12,16 +12,16 @@ function titleCase(title) {
   var alphanumericPattern = /([A-Za-z0-9\u00C0-\u00FF])/;
 
   return words.map(function (currentWord, index, array) {
-    if (currentWord === 'javascript' || currentWord === 'javascript:') {
-      return currentWord[0].toUpperCase() + currentWord.slice(1, 4).toLowerCase() + currentWord[4].toUpperCase() + currentWord.slice(5).toLowerCase();
-    }
 
+    if (currentWord.includes('javascript')) {
+      currentWord = currentWord[0].toUpperCase() + currentWord.slice(1, 4).toLowerCase() + currentWord[4].toUpperCase() + currentWord.slice(5).toLowerCase();
+    }
     if (currentWord === 'api') {
-      return currentWord.toUpperCase();
+      currentWord = currentWord.toUpperCase();
     }
 
     if (currentWord === 'node.js') {
-      return currentWord[0].toUpperCase() + currentWord.substr(1).toLowerCase();
+      currentWord = currentWord[0].toUpperCase() + currentWord.substr(1).toLowerCase();
     }
 
     if (currentWord.includes('-')) {
@@ -31,13 +31,11 @@ function titleCase(title) {
     if (currentWord.search(smallWords) > -1 && index !== 0 && index !== array.length - 1) {
       return currentWord.toLowerCase();
     }
-    if (currentWord.substr(1).search(/[A-Z]|\../) > -1) {
-      return currentWord;
-    }
 
-    if (currentWord.includes(':')) {
-      return currentWord + ' ' + array[index + 1][0].toUpperCase() + array[index + 1].slice(1).toLowerCase() + ' ' + array.splice(index + 2, 1);
-    }
+    // if () {
+    //   currentWord += array[index + 1][0].toUpperCase() + array[index + 1].slice(1).toLowerCase();
+    // }
+
     return currentWord.replace(alphanumericPattern, function (match) {
       return match.toUpperCase();
     });
