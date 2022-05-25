@@ -7,45 +7,84 @@
 // if the second part of the word is hypenated, capitalize it
 
 function titleCase(title) {
+  var words = title.toLowerCase().split(' ');
   var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|v.?|vs.?|via)$/i;
   var alphanumericPattern = /([A-Za-z0-9\u00C0-\u00FF])/;
-  var wordSeparators = /([ :–—-])/;
 
-  return title.split(wordSeparators)
-    .map(function (current, index, array) {
-      if (
-        /* Check for small words */
-        current.search(smallWords) > -1 &&
-        /* Skip first and last word */
-        index !== 0 &&
-        index !== array.length - 1 &&
-        /* Ignore title end and subtitle start */
-        array[index - 3] !== ':' &&
-        array[index + 1] !== ':' &&
-        /* Ignore small words that start a hyphenated phrase */
-        (array[index + 1] !== '-' ||
-          (array[index - 1] === '-' && array[index + 1] === '-'))
-      ) {
-        return current.toLowerCase();
-      }
+  return words.map(function (currentWord, index, array) {
+    if (currentWord === 'javascript' || currentWord === 'javascript:') {
+      return currentWord[0].toUpperCase() + currentWord.slice(1, 4).toLowerCase() + currentWord[4].toUpperCase() + currentWord.slice(5).toLowerCase();
+    }
 
-      /* Ignore intentional capitalization */
-      if (current.substr(1).search(/[A-Z]|\../) > -1) {
-        return current;
-      }
+    if (currentWord === 'api') {
+      return currentWord.toUpperCase();
+    }
 
-      /* Ignore URLs */
-      if (array[index + 1] === ':' && array[index + 2] !== '') {
-        return current;
-      }
+    if (currentWord === 'node.js') {
+      return currentWord[0].toUpperCase() + currentWord.substr(1).toLowerCase();
+    }
 
-      /* Capitalize the first letter */
-      return current.replace(alphanumericPattern, function (match) {
-        return match.toUpperCase();
-      });
-    })
-    .join('');
+    if (currentWord.includes('-')) {
+      return currentWord.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('-');
+    }
+
+    if (currentWord.search(smallWords) > -1 && index !== 0 && index !== array.length - 1) {
+      return currentWord.toLowerCase();
+    }
+    if (currentWord.substr(1).search(/[A-Z]|\../) > -1) {
+      return currentWord;
+    }
+
+    if (currentWord.includes(':')) {
+      return currentWord + ' ' + array[index + 1][0].toUpperCase() + array[index + 1].slice(1).toLowerCase() + ' ' + array.splice(index + 2, 1);
+    }
+    return currentWord.replace(alphanumericPattern, function (match) {
+      return match.toUpperCase();
+    });
+  })
+    .join(' ');
 }
+
+// function titleCase(title) {
+//   var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|v.?|vs.?|via)$/i;
+//   var alphanumericPattern = /([A-Za-z0-9\u00C0-\u00FF])/;
+//   var wordSeparators = /([ :–—-])/;
+
+//   return title.split(wordSeparators)
+//     .map(function (current, index, array) {
+//       if (
+//         /* Check for small words */
+//         current.search(smallWords) > -1 &&
+//         /* Skip first and last word */
+//         index !== 0 &&
+//         index !== array.length - 1 &&
+//         /* Ignore title end and subtitle start */
+//         array[index - 3] !== ':' &&
+//         array[index + 1] !== ':' &&
+//         /* Ignore small words that start a hyphenated phrase */
+//         (array[index + 1] !== '-' ||
+//           (array[index - 1] === '-' && array[index + 1] === '-'))
+//       ) {
+//         return current.toLowerCase();
+//       }
+
+//       /* Ignore intentional capitalization */
+//       if (current.substr(1).search(/[A-Z]|\../) > -1) {
+//         return current;
+//       }
+
+//       /* Ignore URLs */
+//       if (array[index + 1] === ':' && array[index + 2] !== '') {
+//         return current;
+//       }
+
+//       /* Capitalize the first letter */
+//       return current.replace(alphanumericPattern, function (match) {
+//         return match.toUpperCase();
+//       });
+//     })
+//     .join('');
+// }
 
 // function titleCase(title) {
 //   var words = title.toLowerCase().split(' ');
