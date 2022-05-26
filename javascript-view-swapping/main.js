@@ -28,6 +28,28 @@ $tabContainer.addEventListener('click', function (event) {
   }
 });
 
+// function handleViewSwap(event) {
+//   if (!event.target.matches('.tab')) {
+//     return;
+//   }
+//   for (var tabIndex = 0; tabIndex < $tabs.lengh; tabIndex++) {
+//     if ($tabs[tabIndex] === event.target) {
+//       $tabs[tabIndex].className = 'tab active';
+//     } else {
+//       $tabs[tabIndex].className = 'tab';
+//     }
+//   }
+
+//   var viewName = event.target.getAttribute('data-view');
+//   for (var i = 0; i < views.lengh; i++) {
+//     if ($views[i].getAttribute('data-view') !== viewName) {
+//       $views[i].className = 'view hidden';
+//     } else {
+//       $views[i].className = 'view';
+//     }
+//   }
+// }
+
 // Alternative solution
 // function handleEvent(event) {
 //   if (event.target.matches('.tab')) {
