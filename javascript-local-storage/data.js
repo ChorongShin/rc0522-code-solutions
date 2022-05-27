@@ -11,5 +11,5 @@ if (previousTodosJSON !== null) {
 window.addEventListener('beforeunload', function (event) {
   var todosJSON = JSON.stringify(todos);
 
-  this.localStorage.setItem('javascript-local-storage', todosJSON);
+  localStorage.setItem('javascript-local-storage', todosJSON);
 });
