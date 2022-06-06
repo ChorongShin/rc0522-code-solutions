@@ -7,7 +7,6 @@ var $overlay = document.querySelector('.overlay');
 var index = 0;
 
 document.addEventListener('keydown', function (event) {
-
   if (event.key === $characters[index].textContent) {
     $characters[index].className = 'type green';
     index++;
