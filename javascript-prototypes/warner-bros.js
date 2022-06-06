@@ -19,10 +19,14 @@ var dot = {
 
 };
 
-// var warnerPrototype = {
-//   describe: function () {
-//     var description = this.name + ' is a ' +
-//       this.age + '-year-old Warner ' + this.role + '.';
-//     return description;
-//   }
-// };
+var warnerPrototype = {
+  describe: function () {
+    var description = this.name + ' is a ' +
+      this.age + '-year-old Warner ' + this.role + '.';
+    return description;
+  }
+};
+
+Object.setPrototypeOf(yakko, warnerPrototype);
+Object.setPrototypeOf(wakko, warnerPrototype);
+Object.setPrototypeOf(dot, warnerPrototype);
