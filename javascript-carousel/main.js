@@ -3,6 +3,7 @@ var $dotsDiv = document.querySelector('.dots-div');
 var $dots = document.querySelectorAll('.dot');
 var $previousIcon = document.querySelector('.fa-angle-left');
 var $nextIcon = document.querySelector('.fa-angle-right');
+// var $spans = document.querySelectorAll('span');
 var data =
 {
   views: ['bulbasaur', 'charmander', 'squirtle', 'pikachu', 'jigglypuff'],
@@ -21,10 +22,8 @@ function pokemons() {
     count = -1;
     count++;
     setImg();
-    // $dots[count].className = 'dot on';
     dotsCount();
   }
-
 }
 
 intervalId = setInterval(pokemons, 2000);
