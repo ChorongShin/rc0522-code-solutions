@@ -62,6 +62,7 @@ $dotsDiv.addEventListener('click', function (event) {
     if (event.target.id === data.views[i]) {
       $dots[i].className = 'dot on';
       pokemon.setAttribute('src', 'images/' + data.images[i]);
+      count = i;
     } else {
       $dots[i].className = 'dot';
     }
