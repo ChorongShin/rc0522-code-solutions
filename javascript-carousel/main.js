@@ -30,7 +30,6 @@ function pokemons() {
     setImg();
     dotsCount();
   }
-
 }
 
 intervalId = setInterval(pokemons, 3000);
@@ -48,7 +47,7 @@ function previous() {
 
 function next() {
   if (count >= data.images.length - 1) {
-    count = -1;
+    count--;
     $dots[count].className = 'dot';
 
   }
