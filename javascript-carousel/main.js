@@ -1,5 +1,4 @@
 var pokemon = document.querySelector('.pokemon');
-// var images = ['001.png', '004.png', '007.png', '025.png', '039.png'];
 var $dotsDiv = document.querySelector('.dots-div');
 var $dots = document.querySelectorAll('.dot');
 var $previousIcon = document.querySelector('.fa-angle-left');
@@ -11,29 +10,30 @@ var data =
 };
 
 var count = 0;
+var intervalId = null;
 
-setInterval(function () {
-  if (count === 0) {
+function dotsCount() {
+  for (var i = 0; i < $dots.length; i++) {
+    $dots[i].className = 'dot';
+  }
+  $dots[count].className = 'dot on';
+}
 
-    setImg();
+function pokemons() {
+  if (count < data.images.length - 1) {
     count++;
-  } else if (count < 6 && count >= 1) {
     setImg();
-    $dots[count - 1].className = 'dot';
-    $dots[count].className = 'dot on';
+    dotsCount();
+  } else if (count === 4) {
+    count = -1;
     count++;
+    setImg();
+    dotsCount();
   }
 
-  if (count === data.images.length) {
-    $dots[count - 1].className = 'dot';
-    setImg();
-    count = 0;
-    $dots[0].className = 'dot on';
-    setImg();
-    count = 0;
-  }
+}
 
-}, 1000);
+intervalId = setInterval(pokemons, 3000);
 
 function previous() {
   if (count <= 0) {
@@ -41,8 +41,7 @@ function previous() {
     $dots[count].className = 'dot';
   }
   count--;
-  $dots[count].className = 'dot on';
-  $dots[count + 1].className = 'dot';
+  dotsCount();
 
   return setImg();
 }
@@ -54,8 +53,7 @@ function next() {
 
   }
   count++;
-  $dots[count].className = 'dot on';
-  $dots[count - 1].className = 'dot';
+  dotsCount();
   return setImg();
 }
 
@@ -75,5 +73,6 @@ $dotsDiv.addEventListener('click', function (event) {
       $dots[i].className = 'dot';
     }
   }
-
+  clearInterval(intervalId);
+  intervalId = setInterval(pokemons, 3000);
 });
