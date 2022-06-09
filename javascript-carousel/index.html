@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Carousel</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-container">
+    <div class="view-container">
+      <div class="view" data-view="bulbasaur">
+        <div class="row">
+          <div class="column-fourth">
+            <span class="angle"><i class="fa-solid fa-angle-left fa-2xl"></i></span>
+          </div>
+          <div class="column-two-fourths">
+            <div class="pokemon-div">
+              <img class="pokemon" src="images/001.png" alt="bulbasaur">
+            </div>
+          </div>
+          <div class="column-fourth">
+            <span class="angle"><i class="fa-solid fa-angle-right fa-2xl"></i></span>
+          </div>
+        </div>
+        <div class="row circle-row">
+          <div class="column-one-thirds"></div>
+          <div class="column-one-thirds dots-div">
+            <span id="bulbasaur" class="dot on"></span>
+            <span id="charmander" class="dot"></span>
+            <span id="squirtle" class="dot"></span>
+            <span id="pikachu" class="dot"></span>
+            <span id="jigglypuff" class="dot"></span>
+          </div>
+          <div class="column-one-thirds"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
