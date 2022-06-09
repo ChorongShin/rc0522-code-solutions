@@ -12,13 +12,6 @@ var data =
 var count = 0;
 var intervalId = null;
 
-function dotsCount() {
-  for (var i = 0; i < $dots.length; i++) {
-    $dots[i].className = 'dot';
-  }
-  $dots[count].className = 'dot on';
-}
-
 function pokemons() {
   if (count < data.images.length - 1) {
     count++;
@@ -28,16 +21,18 @@ function pokemons() {
     count = -1;
     count++;
     setImg();
+    // $dots[count].className = 'dot on';
     dotsCount();
   }
+
 }
 
-intervalId = setInterval(pokemons, 3000);
+intervalId = setInterval(pokemons, 2000);
 
 function previous() {
   if (count <= 0) {
     count = data.images.length;
-    dotsCount();
+    $dots[count].className = 'dot';
   }
   count--;
   dotsCount();
@@ -75,3 +70,10 @@ $dotsDiv.addEventListener('click', function (event) {
   clearInterval(intervalId);
   intervalId = setInterval(pokemons, 3000);
 });
+
+function dotsCount() {
+  for (var i = 0; i < $dots.length; i++) {
+    $dots[i].className = 'dot';
+  }
+  $dots[count].className = 'dot on';
+}
