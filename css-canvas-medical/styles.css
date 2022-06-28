@@ -8,7 +8,7 @@ body {
 }
 
 .top {
-  max-width: 1000px;
+  max-width: 1050px;
 }
 
 .row {
@@ -22,6 +22,10 @@ body {
 
 .column-third {
   width: calc(100%/3);
+}
+
+.column-two-thirds {
+  width: calc(200%/3);
 }
 
 .half-column {
@@ -253,8 +257,7 @@ h1 {
 }
 
 /* footer */
-footer {
-  background-color: #f5f5f5;
+.footer-container {
   height: 100px;
   text-align: center;
   padding-top: 2rem;
@@ -274,4 +277,251 @@ footer {
 .footer-li {
   display: inline-block;
   font-weight: 500;
+}
+
+/* product.html */
+
+/* top */
+a.product-link {
+  color: #036;
+}
+
+/* hero-image for product */
+
+.margin-product {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 530px;
+  background-image: url("images/product/product-header.jpg");
+  background-size: cover;
+  position: relative;
+  filter: opacity(87%) saturate(1.3) brightness(88%);
+}
+
+.overlay-product > img {
+  width: 100%;
+}
+
+.product-text {
+  font-family: Avenir, sans-serif;
+  color: white;
+  position: absolute;
+  top: 120px;
+  line-height: 1.5rem;
+  font-size: 15px;
+}
+
+.product-heading {
+  margin-top: 5rem;
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.product-one {
+  font-size: 2.2rem;
+}
+
+.overlay-product {
+  background: linear-gradient(transparent, rgb(0 1 0 / 30%));
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+/* care command */
+.background-color {
+  background-color: #f8f8ff;
+  padding-bottom: 5rem;
+  padding-top: 2rem;
+}
+
+.history-image {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.patient-history {
+  width: 90%;
+  padding-left: 2rem;
+  height: 550px;
+  object-fit: contain;
+}
+
+blockquote p::before {
+  content: "\201C";
+}
+
+blockquote p::after {
+  content: "\201D";
+}
+
+a.learn-more-link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #036;
+}
+
+.padding-quote {
+  padding-top: 3rem;
+}
+
+.care-text {
+  margin-left: 2rem;
+  margin-right: 3rem;
+}
+
+.care {
+  font-size: 2rem;
+  font-family: "Tiempos Headline", serif;
+  color: #585858;
+}
+
+.care-description {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  padding-right: 1rem;
+}
+
+.quote-box {
+  margin: 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  font-family: "Tiempos Headline", serif;
+  color: #696969;
+  line-height: 1.8rem;
+  padding-right: 3rem;
+}
+
+.dr {
+  font-size: 1.2rem;
+  color: #696969;
+}
+
+/* population */
+.population {
+  margin-top: 2rem;
+}
+
+.patient-image {
+  padding: 4rem 4rem 3rem 2rem;
+}
+
+.population-text {
+  padding-left: 3.8rem;
+  padding-right: 1rem;
+}
+
+.quote-box-two {
+  margin: 0;
+  padding-right: 1rem;
+  padding-left: 1.5rem;
+  font-size: 1.2rem;
+  color: #696969;
+  padding-bottom: 3rem;
+}
+
+.care-quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  font-family: "Tiempos Headline", serif;
+  color: #696969;
+  line-height: 1.8rem;
+  padding-right: 2.5rem;
+  padding-left: 2rem;
+}
+
+.dr-two {
+  padding-left: 2rem;
+}
+
+/* performance */
+.performance-image {
+  margin-top: 4rem;
+  padding-left: 3rem;
+  margin-right: 2rem;
+}
+
+.performance-history {
+  width: 90%;
+  padding-left: 2rem;
+  height: 550px;
+  object-fit: contain;
+  padding-top: 3rem;
+  margin-top: 1rem;
+}
+
+/* learn-more-two */
+
+.learn-more-two {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.learn-heading-two {
+  font-size: 1.8rem;
+  font-family: "Tiempos Headline", sans-serif;
+}
+
+.learn-para-two {
+  font-size: 1.2rem;
+  padding-left: 0.8rem;
+}
+
+.button-part-two-second {
+  margin-top: 2rem;
+}
+
+.get-started-part-two-second {
+  font-size: 1rem;
+  width: 45%;
+  height: 3rem;
+  background-color: #036;
+  color: white;
+  border-radius: 6px;
+  border-style: none;
+}
+
+.center-two {
+  margin-top: 1rem;
+}
+
+.address-two {
+  line-height: 1.6rem;
+}
+
+.footer-two {
+  list-style-type: none;
+  margin: 0;
+}
+
+.footer-two-li {
+  display: inline-block;
+  font-weight: 500;
+  padding-right: 2rem;
+  font-size: 1.2rem;
+}
+
+.footer-sub-two {
+  text-decoration: none;
+  color: #808080;
+}
+
+.footer-container-two {
+  height: 100px;
+  padding-top: 2rem;
+  padding-left: 2rem;
 }
