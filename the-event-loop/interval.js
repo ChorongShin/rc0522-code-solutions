@@ -14,13 +14,14 @@ function countDown() {
 
 intervalID = setInterval(countDown, 1000);
 
+// Alternative solution
 // let count = 3;
 // const interval = setInterval(() => {
 //   If(count === 0) {
-//     console.log(‘blast off’)
-//     clearInterval(interval)
+//     console.log(‘blast off’);
+//     clearInterval(interval);
 //   } else {
-//     console.log(count)
-//     count–
+//     console.log(count);
+//     count--;
 //   }
 // }, 1000)
