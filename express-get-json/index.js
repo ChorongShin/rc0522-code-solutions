@@ -23,9 +23,14 @@ const grades = {
 
 const app = express();
 
-app.get('/api/grades', (req, res) => {
+const arr = [];
 
-  res.json([grades]);
+app.get('/api/grades', (req, res) => {
+  for (const property in grades) {
+    arr.push(grades[property]);
+  }
+
+  res.json(arr);
 
 });
 
