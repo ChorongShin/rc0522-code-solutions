@@ -39,7 +39,7 @@ app.delete('/api/grades/:id', (req, res) => {
     delete grades[id];
   }
 
-  res.sendStatus(202);
+  res.sendStatus(204);
 
 });
 
