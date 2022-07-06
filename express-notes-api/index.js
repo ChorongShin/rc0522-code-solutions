@@ -22,6 +22,7 @@ app.get('/api/notes/:id', (req, res) => {
 
   if (!Number.isInteger(id) || id < 1) {
     res.status(400).json({ error: 'id must be a positive integer' });
+
   } else if (id in data.notes) {
     res.status(200).json(data.notes[id]);
   } else {
@@ -43,7 +44,7 @@ app.post('/api/notes', (req, res) => {
   content.id = id;
   data.notes[id] = content;
 
-  const updatedData = JSON.stringify(data);
+  const updatedData = JSON.stringify(data, null, 2);
   fs.writeFile('data.json', updatedData, 'utf8', err => {
 
     if (err) {
@@ -63,7 +64,7 @@ app.delete('/api/notes/:id', (req, res) => {
     res.status(404).json({ error: `cannot find note with id ${id}` });
   } else {
     delete data.notes[id];
-    const updatedData = JSON.stringify(data);
+    const updatedData = JSON.stringify(data, null, 2);
 
     fs.writeFile('data.json', updatedData, 'utf8', err => {
       if (err) {
