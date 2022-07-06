@@ -20,7 +20,7 @@ app.get('/api/notes/:id', (req, res) => {
   const id = Number(req.params.id);
   // console.log('id:', id);
 
-  if (id < 0) {
+  if (!Number.isInteger(id) || id < 1) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else if (id in data.notes) {
     res.status(200).json(data.notes[id]);
@@ -31,18 +31,17 @@ app.get('/api/notes/:id', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-  const content = req.body;
 
-  // console.log('what is this?', req.body.content);
-  const id = data.nextId;
-  if (req.body.content) {
-    data.nextId++;
-    content.id = id;
-    data.notes[id] = content;
-    res.status(201).json(content);
-  } else {
+  if (!req.body.content) {
     res.status(400).json({ error: 'content is a required field' });
   }
+
+  const content = req.body;
+  const id = data.nextId;
+
+  data.nextId++;
+  content.id = id;
+  data.notes[id] = content;
 
   const updatedData = JSON.stringify(data);
   fs.writeFile('data.json', updatedData, 'utf8', err => {
@@ -50,38 +49,38 @@ app.post('/api/notes', (req, res) => {
     if (err) {
       console.error(err);
       res.status(500).json({ error: 'An unexpected error occurred' });
+      return;
     }
-
+    res.status(201).json(content);
   });
-
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-  const id = req.params.id;
-  if (id < 0) {
+  const id = Number(req.params.id);
+  if (!Number.isInteger(id) || id < 1) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else if (!data.notes[id]) {
     res.status(404).json({ error: `cannot find note with id ${id}` });
   } else {
     delete data.notes[id];
     const updatedData = JSON.stringify(data);
-    fs.writeFile('data.json', updatedData, 'utf8', err => {
 
+    fs.writeFile('data.json', updatedData, 'utf8', err => {
       if (err) {
         console.error(err);
         res.status(500).json({ error: 'An unexpected error occurred' });
+        return;
       }
-
+      res.sendStatus(204);
     });
-    res.sendStatus(204);
   }
 });
 
 app.put('/api/notes/:id', (req, res) => {
-  const id = req.params.id;
+  const id = Number(req.params.id);
   const content = req.body;
 
-  if (id < 0) {
+  if (!Number.isInteger(id) || id < 1) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else if (!req.body.content) {
     res.status(400).json({ error: 'content is a required field' });
@@ -95,11 +94,10 @@ app.put('/api/notes/:id', (req, res) => {
       if (err) {
         console.error(err);
         res.status(500).json({ error: 'An unexpected error occurred' });
+        return;
       }
-
+      res.status(201).json(content);
     });
-
-    res.status(201).json(content);
   }
 });
 
