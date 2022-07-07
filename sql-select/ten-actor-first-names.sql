@@ -1,4 +1,4 @@
 select "actorId",
        "firstName"
   from "actors"
-where "actorId" <= 10;
+limit 10;
