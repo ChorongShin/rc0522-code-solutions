@@ -1,8 +1,8 @@
 select
-       "c"."firstName",
-       "c"."lastName"
+       "firstName",
+       "lastName"
   from "rentals"
   join "inventory" using ("inventoryId")
+  join "customers" using ("customerId")
   join "films" using ("filmId")
-  join "customers" as "c" using ("customerId")
-where "films"."title" = 'Magic Mallrats';
+where "title" = 'Magic Mallrats';

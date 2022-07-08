@@ -1,7 +1,16 @@
 select
-       "films"."releaseYear",
-       "genres"."name"
+       "releaseYear",
+       "genres"."name" as "genre"
     from "filmGenre"
     join "films" using ("filmId")
     join "genres" using ("genreId")
-  where "films"."title" = 'Boogie Amelie';
+  where "title" = 'Boogie Amelie';
+
+
+-- select
+--        "releaseYear",
+--        "genres"."name" as "genre"
+--     from "films"
+--     join "filmGenre" using ("filmId")
+--     join "genres" using ("genreId")
+--   where "title" = 'Boogie Amelie';
