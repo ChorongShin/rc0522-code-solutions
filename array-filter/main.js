@@ -23,3 +23,4 @@ console.log('startWithE:', startWithE);
 
 const haveD = names.filter(name => name.includes('D') || name.includes('d'));
 console.log('haveD:', haveD);
+// const haveD = names.filter(name => name.toLowerCase().includes('d'));
