@@ -26,10 +26,17 @@ class Student {
 
   getFullName() {
     return `${this.firstName} ${this.lastName}`;
+    // otherway
+    // const {firstName, lastName} = this;
+    // return `${firstName} ${lastName}`;
   }
 
   getIntroduction() {
     const fullName = this.getFullName();
     return `Hello, my name is ${fullName} and I am studying ${this.subject}.`;
+    // Otherway
+    // const {subject} = this;
+    // const fullName = this.getFullName();
+    // return `Hello, my name is ${fullName} and I am studying ${subject}.`;
   }
 }

@@ -27,12 +27,12 @@
 // };
 
 class Stopwatch {
-  constructor(elapsedSeconds) {
-    this.elapsedSeconds = elapsedSeconds;
+  constructor(startTimeInSeconds) {
+    this.elapsedSeconds = startTimeInSeconds;
   }
 
   tick() {
-    return this.elapsedSeconds++;
+    this.elapsedSeconds++;
   }
 
   getTime() {
