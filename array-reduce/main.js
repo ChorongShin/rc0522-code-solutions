@@ -41,8 +41,22 @@ const balance = account.reduce((total, current) => {
 
 console.log('balance:', balance);
 
-const composite = traits.reduce((total, current) => {
-  return total.concat(current);
-}, []);
+// Other Solution
+// const net = (balance, transaction) => {
+// console.log('balance:', balance);
+// console.log('transaction:', transaction);
+// console.log('----------------');
+//   if (transaction.type === 'deposit') {
+//     return balance + transaction.amount;
+//   }
+//   return balance - transaction.amount
+// }
+// const balance = account.reduce(net, 0)
+
+const composite = traits.reduce((composite, trait) => {
+  return Object.assign(composite, trait);
+}, {});
+// composit starts as empty object
+// trait starts as the object or reference in array
 
 console.log('composite:', composite);
