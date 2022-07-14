@@ -16,5 +16,5 @@ root.render(element);
 //   )
 // }
 // const container = document.querySelector('#root');
-// const root - ReactDOM.createRoot(container)
+// const root = ReactDOM.createRoot(container)
 // root.rener(<CustomButton />)
