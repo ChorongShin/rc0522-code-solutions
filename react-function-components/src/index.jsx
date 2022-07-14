@@ -8,3 +8,13 @@ function CustomButton(props) {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const element = <CustomButton name="Click Me!" />;
 root.render(element);
+
+// Alternative solution
+// function CustomButton() {
+//   return (
+//     <button>Click Me!</button>
+//   )
+// }
+// const container = document.querySelector('#root');
+// const root - ReactDOM.createRoot(container)
+// root.rener(<CustomButton />)
