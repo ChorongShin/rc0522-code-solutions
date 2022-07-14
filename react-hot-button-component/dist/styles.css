@@ -1,0 +1,38 @@
+.btn {
+  border: solid 3px black;
+  border-radius: 4px;
+  box-shadow: 10px 5px 5px black;
+  font-size: 1.25rem;
+  min-width: 100px;
+  padding: 1rem 2.5rem;
+}
+
+.btn-indigo {
+  background-color: rgb(53 28 117);
+  color: #fff;
+}
+
+.btn-purple {
+  background-color: rgb(103 78 167);
+  color: #fff;
+}
+
+.btn-roman {
+  background-color: rgb(224 102 102);
+  color: #fff;
+}
+
+.btn-apricot {
+  background-color: rgb(246 178 107);
+  color: black;
+}
+
+.btn-yellow {
+  background-color: rgb(254 255 0);
+  color: black;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: black;
+}
