@@ -1,0 +1,62 @@
+.outer {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid black 3px;
+}
+
+p {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.column-full {
+  width: 100%;
+}
+
+button {
+  position: relative;
+  left: 71px;
+  top: 30px;
+  background-color: white;
+}
+
+.button {
+  box-sizing: border-box;
+  width: 64px;
+  height: 64px;
+  border-color: transparent;
+  transition: 100ms all ease;
+  will-change: border-width;
+  border-style: solid;
+  border-width: 37px 0 37px 60px;
+}
+
+/* .arrow-right {
+  margin-top: 2rem;
+  margin-left: 0.7rem;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 40px solid black;
+  background-color: white;
+} */
+
+.button.play {
+  border-width: 37px 0 37px 74px;
+  border-color: transparent transparent transparent #202020;
+}
+
+.button.pause {
+  border-style: double;
+  border-width: 0 0 0 37px;
+  border-color: #202020;
+}
