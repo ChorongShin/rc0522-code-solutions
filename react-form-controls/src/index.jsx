@@ -5,20 +5,33 @@ class RegistrationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      password: ''
+      username: '',
+      password: '',
+      fullName: ''
     };
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    // this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    // this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleUsernameChange(event) {
-    this.setState({ name: event.target.value });
-  }
+  // handleUsernameChange(event) {
+  //   this.setState({ username: event.target.value });
+  // }
 
-  handlePasswordChange(event) {
-    this.setState({ password: event.target.value });
+  // handlePasswordChange(event) {
+  //   this.setState({ password: event.target.value });
+  // }
+
+  // Universal handleChange method
+  handleChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    console.log('Input name:', name);
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit(event) {
@@ -29,13 +42,34 @@ class RegistrationForm extends React.Component {
   render() {
     return (
     <form onSubmit={this.handleSubmit}>
-      <label>
+        <label htmlFor="signup-full-name">
+          Full Name:
+          <input
+            id="signup-full-name"
+            name="fullName"
+            type="text"
+            value={this.state.fullName}
+            onChange={this.handleChange} />
+        </label>
+      <label htmlFor="signup-username">
         Username:
-        <input type="text" value={this.state.name} onChange={this.handleUsernameChange} />
+        <input
+        id="signup-username"
+        name="username"
+        type="text"
+        value={this.state.name}
+        // onChange={this.handleUsernameChange}
+        onChange={this.handleChange}/>
       </label>
-      <label>
+        <label htmlFor="signup-password">
         Password:
-          <input type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+          <input
+          id="signup-password"
+          name="password"
+          type="password"
+          value={this.state.password}
+          // onChange={this.handlePasswordChange} />
+          onChange={this.handleChange} />
       </label>
         <button type="submit">Sign Up</button>
     </form>
