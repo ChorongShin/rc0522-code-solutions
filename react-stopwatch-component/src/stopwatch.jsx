@@ -4,76 +4,80 @@ export default class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isClicked: false,
-      second: 0
+      counter: 0,
+      running: false
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleStopTimer = this.handleStopTimer.bind(this);
+    this.handleStartTimer = this.handleStartTimer.bind(this);
+    this.tick = this.tick.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
-  // tick() {
-  //   this.setState({ seconds: this.state.seconds + 1 });
-  // }
+  tick() {
+    this.setState({ counter: this.state.counter + 1 });
+  }
 
-  // componentDidMount() {
-  //   setInterval(() => {
-  //     return this.setState(state => {
-  //       return {
-  //         second: state.second === 59 ? 0 : state.second + 1
-  //       };
-  //     });
-  //   }, 1000);
-  // }
+  handleStartTimer() {
+    this.intervalId = setInterval(this.tick, 1000);
+    this.setState({ running: true });
+  }
+
+  handleStopTimer() {
+    clearInterval(this.intervalId);
+    this.setState({ running: false });
+  }
 
   reset() {
-    this.setState({ seconds: 0 });
-  }
-
-  handleClick() {
-    setInterval(() => {
-      return this.setState(state => {
-        return {
-          isClicked: !this.state.isClicked,
-          second: state.second === 59 ? 0 : state.second + 1
-        };
-      });
-    }, 1000);
-    // this.setState({ isClicked: !this.state.isClicked });
+    if (!this.state.running) {
+      this.setState({ counter: 0 });
+    }
   }
 
   render() {
     // console.log('State:', this.state);
     // console.log('props:', this.props);
-    const isClicked = this.state.isClicked;
+    const isClicked = this.state.running;
+    let button = 'play';
+    let onClick = this.handleStartTimer;
+    const seconds = this.state.counter;
+    const reset = this.reset;
+
     if (isClicked) {
+      onClick = this.handleStopTimer;
+      button = 'pause';
+
+    } else {
       return (
       <div>
         <div className="row">
           <div className="column-full">
-            <div className="outer"><p>{this.state.second}</p></div>
+            <div className="outer"><p>{seconds}</p></div>
           </div>
         </div>
         <div className="row">
           <div className="column-full">
-              <button className="button pause" onClick={this.handleClick}></button>
+            <button className={`button ${button}`} onClick={onClick}></button>
           </div>
         </div>
       </div>
       );
-    } else if (!isClicked) {
+    }
+
+    if (!this.state.running && button === 'pause') {
       return (
-      <div>
-        <div className="row">
-          <div className="column-full">
-            <div className="outer"><p></p></div>
+        <div>
+          <div className="row">
+            <div className="column-full">
+              <div className="outer" onClick={reset}><p>{seconds}</p></div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="column-full">
+              <button className={`button ${button}`} onClick={onClick}></button>
+            </div>
           </div>
         </div>
-        <div className="row">
-          <div className="column-full">
-            <button className="button play" onClick={this.handleClick}></button>
-          </div>
-        </div>
-      </div>
       );
     }
   }
