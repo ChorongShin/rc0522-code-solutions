@@ -17,17 +17,18 @@ export default class ToggleSwtich extends React.Component {
   render() {
 
     const isClicked = this.state.isClicked;
+
     if (isClicked) {
       return (
-      <label>
-        <input className="toggle" type="checkbox" onClick={this.handleClick}></input>
-     </label>
+        <div className="outer" onClick={this.handleClick}>
+        <div className="inner"><p>OFF</p></div>
+      </div>
       );
     }
     return (
-      <label>
-        <input type="checkbox" className="toggle" onClick={this.handleClick}></input>
-      </label>
+      <div className="outer click-one" onClick={this.handleClick}>
+      <div className="inner click-two"><p>ON</p></div>
+    </div>
     );
   }
 }
