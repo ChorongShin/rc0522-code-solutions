@@ -17,31 +17,25 @@ export default class CustomButton extends React.Component {
   render() {
     const count = this.state.counter;
     const text = 'Hot Button';
+    let btnClass = '';
     if (this.state.counter < 4) {
-      return <button className="btn btn-indigo" onClick={this.handleClick}>
-        {text}
-      </button>;
+      btnClass = 'btn-indigo';
     } else if (count < 7) {
-      return <button className="btn btn-purple" onClick={this.handleClick}>
-        {text}
-      </button>;
+      btnClass = 'btn-purple';
     } else if (count < 10) {
-      return <button className="btn btn-roman" onClick={this.handleClick}>
-        {text}
-      </button>;
+      btnClass = 'btn-roman';
     } else if (count < 13) {
-      return <button className="btn btn-apricot" onClick={this.handleClick}>
-        {text}
-      </button>;
+      btnClass = 'btn-apricot';
     } else if (count < 16) {
-      return <button className="btn btn-yellow" onClick={this.handleClick}>
-        {text}
-      </button>;
+      btnClass = 'btn-yellow';
     } else if (count >= 16) {
-      return <button className="btn btn-white" onClick={this.handleClick}>
-        {text}
-      </button>;
+      btnClass = 'btn-white';
     }
+    return (
+    <button className={`btn ${btnClass}`} onClick={this.handleClick}>
+      {text}
+    </button>
+    );
 
   }
 }
