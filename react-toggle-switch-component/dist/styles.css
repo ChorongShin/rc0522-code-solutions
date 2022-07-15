@@ -1,0 +1,30 @@
+.outer {
+  width: 300px;
+  height: 107px;
+  background-color: rgb(226 226 226);
+  border: solid black 4px;
+  border-radius: 51px;
+}
+
+.click-one {
+  background-color: #6aa74f;
+}
+
+.inner {
+  width: 150px;
+  height: 104px;
+  border: solid black 4px;
+  background-color: #fff;
+  border-radius: 44px;
+}
+
+.click-two {
+  position: relative;
+  left: 150px;
+}
+
+p {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 24px;
+}
