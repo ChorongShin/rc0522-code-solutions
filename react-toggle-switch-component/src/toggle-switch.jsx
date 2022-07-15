@@ -15,19 +15,22 @@ export default class ToggleSwtich extends React.Component {
   }
 
   render() {
-
     const isClicked = this.state.isClicked;
+    let outerClass = '';
+    let innerClass = '';
+    let text = 'OFF';
 
-    if (isClicked) {
-      return (
-        <div className="outer" onClick={this.handleClick}>
-        <div className="inner"><p>OFF</p></div>
-      </div>
-      );
+    if (!isClicked) {
+      outerClass = 'click-one';
+      innerClass = 'click-two';
+      text = 'ON';
     }
+
     return (
-      <div className="outer click-one" onClick={this.handleClick}>
-      <div className="inner click-two"><p>ON</p></div>
+      <div className={`outer ${outerClass}`} onClick={this.handleClick}>
+        <div className={`inner ${innerClass}`}>
+          <p>{text}</p>
+      </div>
     </div>
     );
   }
