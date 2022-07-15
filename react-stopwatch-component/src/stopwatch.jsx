@@ -35,8 +35,6 @@ export default class Stopwatch extends React.Component {
   }
 
   render() {
-    // console.log('State:', this.state);
-    // console.log('props:', this.props);
     const isClicked = this.state.running;
     let button = 'play';
     let onClick = this.handleStartTimer;
@@ -47,12 +45,12 @@ export default class Stopwatch extends React.Component {
       onClick = this.handleStopTimer;
       button = 'pause';
 
-    } else {
-      return (
+    }
+    return (
       <div>
         <div className="row">
           <div className="column-full">
-            <div className="outer"><p>{seconds}</p></div>
+              <div className="outer" onClick={reset}><p>{seconds}</p></div>
           </div>
         </div>
         <div className="row">
@@ -61,24 +59,7 @@ export default class Stopwatch extends React.Component {
           </div>
         </div>
       </div>
-      );
-    }
+    );
 
-    if (!this.state.running && button === 'pause') {
-      return (
-        <div>
-          <div className="row">
-            <div className="column-full">
-              <div className="outer" onClick={reset}><p>{seconds}</p></div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="column-full">
-              <button className={`button ${button}`} onClick={onClick}></button>
-            </div>
-          </div>
-        </div>
-      );
-    }
   }
 }
