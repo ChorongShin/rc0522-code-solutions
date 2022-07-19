@@ -10,20 +10,7 @@ body {
 
 .row {
   display: flex;
-}
-
-.column-full {
   width: 100%;
-}
-
-.column-fourth {
-  width: 25%;
-}
-
-.column-two-fourths {
-  width: 50%;
-  display: flex;
-  justify-content: center;
 }
 
 .column-one-thirds {
@@ -52,6 +39,8 @@ body {
 .pokemon-div {
   margin-top: 2rem;
   width: 250px;
+  position: relative;
+  left: 151px;
 }
 
 img {
@@ -70,8 +59,8 @@ img {
 }
 
 .fa-angle-right {
-  top: 150px;
-  left: 95px;
+  top: 146px;
+  left: 277px;
 }
 
 .circle-row {
@@ -95,6 +84,10 @@ img {
   height: 14px;
 }
 
-.hidden {
+.inactive {
   display: none;
+}
+
+.active {
+  display: flex;
 }
