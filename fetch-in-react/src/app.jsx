@@ -21,6 +21,19 @@ class App extends React.Component {
       });
   }
 
+  // Class Solution
+  // componentDidMount() {
+
+  //   fetch('https://jsonplaceholder.typicode.com/users')
+  //     .then(res => res.json())
+  //     .then(users => this.setState({
+  //       users: users,
+  //       isLoading: false
+  //     })).catch(err => {
+  //       console.error('Fetch failed!', err);
+  //     });
+  // }
+
   render() {
     return this.state.isLoading
       ? <p>Loading...</p>
