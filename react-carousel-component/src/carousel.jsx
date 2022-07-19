@@ -21,40 +21,33 @@ export default class Carousel extends React.Component {
   }
 
   previousClick(evnet) {
-    const count = this.state.count;
-    const imagesLength = this.state.images.length;
-    if (count <= 0) {
-      this.setState({
-        count: imagesLength
-      });
-    }
+
     this.setState({
       count: this.state.count - 1
     });
   }
 
   nextClick(event) {
-    // const count = this.state.count;
-    // const images = this.state.images;
-    // console.log('images:', images.length);
-    // console.log('count:', count);
-    if (this.state.count >= this.state.images.length - 1) {
-      this.setState({
-        count: 0
-      });
-    }
     this.setState({
       count: this.state.count + 1
     });
+
   }
 
   render() {
-    // const images = this.state.images;
-    // let index;
-    // for (let i = 0; i < images.length; i++) {
-    //   index = i;
-    // }
     // console.log('state:', this.state);
+    if (this.state.count > this.state.images.length - 1) {
+      this.setState({ count: 0 });
+    }
+
+    if (this.state.count <= -1) {
+      this.setState({
+        count: 4
+      });
+    }
+
+    // work on dot here
+
     const on = 'on';
     return (
       <div>
@@ -81,11 +74,11 @@ export default class Carousel extends React.Component {
             <div className="row circle-row">
               <div className="column-one-thirds"></div>
               <div className="column-one-thirds dots-div">
+                <span id="0" className={`dot ${on}`}></span>
                 <span id="1" className={`dot ${on}`}></span>
                 <span id="2" className={`dot ${on}`}></span>
                 <span id="3" className={`dot ${on}`}></span>
                 <span id="4" className={`dot ${on}`}></span>
-                <span id="5" className={`dot ${on}`}></span>
               </div>
             </div>
           </div>
