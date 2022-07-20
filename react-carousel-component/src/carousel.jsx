@@ -32,11 +32,13 @@ export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0
+      count: 0,
+      running: false
     };
     this.previousClick = this.previousClick.bind(this);
     this.nextClick = this.nextClick.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
+    this.handleDotClick = this.handleDotClick.bind(this);
+    this.dotClick = this.dotClick.bind(this);
 
   }
 
@@ -56,14 +58,25 @@ export default class Carousel extends React.Component {
 
   }
 
-  // handleClick() {
-  //   this.intervalId = setInterval(this.nextClick, 1000);
-  // }
+  handleDotClick() {
+    this.intervalId = setInterval(this.nextClick, 3000);
+    this.setState({ running: true });
+  }
+
+  dotClick() {
+    clearInterval(this.intervalId);
+    this.setState({ running: false });
+  }
 
   render() {
     // console.log('state:', this.state);
-    if (this.state.count > pokedex.length - 1) {
+
+    const running = this.state.running;
+    const onClick = this.handleDotClick;
+
+    if (this.state.count > pokedex.length - 1 && running) {
       this.setState({ count: 0 });
+
     }
 
     if (this.state.count <= -1) {
@@ -75,7 +88,7 @@ export default class Carousel extends React.Component {
     return (
       <div>
         <div className="page-container">
-          <div className="view-container">
+          <div className="view-container" onClick={onClick}>
             {pokedex.map(pokemon => (
                 <div key={pokemon.id} className={`row ${this.state.count === pokemon.id ? 'active' : 'inactive'}`}>
 
@@ -87,6 +100,7 @@ export default class Carousel extends React.Component {
 
                 <div className="pokemon-div">
                     <img className="pokemon"
+                    id={pokemon.id}
                     src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.image}`}
                     alt={`${pokemon.name}`} />
                     </div>
@@ -103,7 +117,8 @@ export default class Carousel extends React.Component {
               {pokedex.map(pokemon =>
                 (<span
                 key={pokemon.id}
-                  className={`dot ${this.state.count === pokemon.id ? 'on' : ''}`}>
+                id={pokemon.id}
+                className={`dot ${this.state.count === pokemon.id ? 'on' : ''}`}>
                 </span>
                 )
               )}
