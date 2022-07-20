@@ -38,25 +38,48 @@ app.post('/api/auth/sign-up', (req, res, next) => {
    * Hint: Insert statements can include a `returning` clause to retrieve the insterted row(s).
    */
 
-  argon2.hash(password).then(hash => {
-    // console.log(hash);
-    const sql = `
+  argon2
+    .hash(password)
+    .then(hashedPassword => {
+    // console.log(hashedPassword);
+      const sql = `
       insert into "users" ("username", "hashedPassword")
       values ($1, $2)
-      returning *;
+      returning "userId", "username", "createdAt;
       `;
 
-    const params = [username, hash];
-
-    db.query(sql, params)
-      .then(result => {
-        const [info] = result.rows;
-        res.status(201).json(info);
-      })
-      .catch(err => next(err));
-
-  });
+      const params = [username, hashedPassword];
+      return db.query(sql, params);
+    })
+    .then(result => {
+      const [user] = result.rows;
+      // const user = result.rows[0];
+      res.status(201).json(user);
+    })
+    .catch(err => next(err));
 });
+
+// My Soultion
+// argon2
+//   .hash(password)
+//   .then(hashedPassword => {
+//     // console.log(hashedPassword);
+//     const sql = `
+//       insert into "users" ("username", "hashedPassword")
+//       values ($1, $2)
+//       returning "userId", "username", "createdAt;
+//       `;
+
+//     const params = [username, hashedPassword];
+//     db.query(sql, params).then(result => {
+// //     const [user] = result.rows;
+// //     // const user = result.rows[0];
+// //     res.status(201).json(user);
+//       })
+//         .catch(err => next(err))
+//   })
+//   .catch(err => next(err));
+// });
 
 app.use(errorMiddleware);
 
