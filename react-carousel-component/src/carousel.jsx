@@ -135,7 +135,7 @@ export default class Carousel extends React.Component {
                 key={pokemon.id}
                 id={pokemon.id}
                 className={`dot ${this.state.count === pokemon.id ? 'on' : ''}`}
-                onClick={`${this.state.count ? this.nextClick : this.previousClick}`}
+                onClick={this.dotClick}
                >
                 </span>
                 )
