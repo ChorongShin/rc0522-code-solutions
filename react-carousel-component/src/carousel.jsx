@@ -33,17 +33,17 @@ export default class Carousel extends React.Component {
     super(props);
     this.state = {
       count: 0,
-      dot: false
+      activeCount: null
     };
     this.previousClick = this.previousClick.bind(this);
     this.nextClick = this.nextClick.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
-    this.dotClick = this.dotClick.bind(this);
+    this.goToIndex = this.goToIndex.bind(this);
 
   }
 
   previousClick(event) {
-    const dot = this.state.dot;
+
     this.setState({
       count: this.state.count - 1
     });
@@ -53,18 +53,9 @@ export default class Carousel extends React.Component {
         count: pokedex.length - 1
       });
     }
-
-    if (dot) {
-      this.setState({
-        count: event.target.id,
-        dot: false
-      });
-
-    }
   }
 
   nextClick(event) {
-    // const dot = this.state.dot;
 
     this.setState({
       count: this.state.count + 1
@@ -75,20 +66,10 @@ export default class Carousel extends React.Component {
         count: 0
       });
     }
-
   }
 
-  dotClick(event) {
-    // console.log('event.target.id', event.target.id);
-    const dot = this.state.dot;
-
-    if (dot) {
-      this.setState({
-        count: event.target.id,
-        dot: false
-      });
-
-    }
+  goToIndex(count) {
+    this.setState({ activeCount: count });
   }
 
   componentDidMount() {
@@ -135,7 +116,7 @@ export default class Carousel extends React.Component {
                 key={pokemon.id}
                 id={pokemon.id}
                 className={`dot ${this.state.count === pokemon.id ? 'on' : ''}`}
-                onClick={this.dotClick}
+                onClick={() => this.goToIndex(this.state.activeCount)}
                >
                 </span>
                 )
