@@ -46,7 +46,7 @@ export default class App extends React.Component {
     * of the old array, plus the object returned by the server.
     */
 
-    fetch('/api/todos', {
+    const req = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -55,11 +55,20 @@ export default class App extends React.Component {
         task: newTodo.task,
         isCompleted: false
       })
-    })
+    };
+
+    fetch('/api/todos', req)
       .then(res => res.json())
-      .then(newTodo => {
+      .then(todo => {
+        // const allTodo = this.state.todos.concat(todo);
+        // OR const todosCopy = this.state.todos.slice();
+        // todosCopy.push(todo)
+        // const todosCopyTwo = [...this.state.todos, todo]
         this.setState({
-          todos: [...this.state.todos, newTodo]
+          // todos: allTodo
+          // OR todos: todosCopy
+          // todos: todosCopyTwo
+          todos: [...this.state.todos, todo]
         });
       });
   }
@@ -87,6 +96,7 @@ export default class App extends React.Component {
      * And specify the "Content-Type" header as "application/json"
      */
     const index = this.state.todos.findIndex(todo => todo.todoId === todoId);
+    // const oldTodo = this.state.todos.find(todo => todo.todoId === tooId)
 
     fetch(`/api/todos/${todoId}`, {
       method: 'PATCH',
@@ -95,16 +105,27 @@ export default class App extends React.Component {
       },
       body: JSON.stringify({
         isCompleted: !this.state.todos[index].isCompleted
+        // isCompleted: !oldTodo.isCompleted
       })
     })
       .then(res => res.json())
-      .then(todo => {
-        const todosCopy = [...this.state.todos];
-        todosCopy[index] = todo;
-        this.setState({
-          todos: todosCopy
+      .then(updated => {
+        const allTodos = this.state.todos.map(original => {
+          return original.todoId === updated.todoId
+            ? updated
+            : original;
         });
+        this.setState({ todos: allTodos });
       });
+
+    // My solution
+    // .then(todo => {
+    //   const todosCopy = [...this.state.todos];
+    //   todosCopy[index] = todo;
+    //   this.setState({
+    //     todos: todosCopy
+    //   });
+    // });
   }
 
   render() {
