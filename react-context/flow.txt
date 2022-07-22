@@ -1,0 +1,25 @@
+User can sign up
+1. When a user clicks the 'Register now' or 'Sign Up' button(client/navbar.jsx),
+   the page moves to the #sign-up page(client/auth-form.jsx, client/redirect.jsx).
+2. It stays on the same #sign-up page even after refreshing the page.
+   because window.location is set up to #sign-up (client/redirect.jsx, client/app.jsx).
+3. When the user types Username and Password and press 'Register' button(client/auth-form.jsx),
+   the input values get saved by the app.post('/api/auth/sign-up') in server/index.js.
+4. Those sign up input values are store in the database
+   containing username, hashedPassword, userId and creeatedAt (database/schema.sql)
+
+User can sign in
+1. When user input username and password values, those values will direct to
+   app.post('api/auth/sign-in') in server/index.js and look for matching
+   data in database/data.sql to check if they are valid.
+2. If input values are not valid, user will get 401 status and 'invalid login' message.
+3. If input values are valid and password matches the hashedPassword in database/data.sql,
+   user will direct to the # page where it shows the GIFs.
+
+
+User can stay signed in (even if they refresh the page)
+1. When user presses refresh button, user will stay signed in and stay in
+   the same page because window.location is set up to # (client/redirect.jsx, client/app.jsx)
+
+User can sign out
+1. When user presses sign out button, user will be directed to #sign-in page(client/navbar.jsx)
