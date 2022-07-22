@@ -47,12 +47,7 @@ export default class App extends React.Component {
      */
     event.preventDefault();
     const caption = this.state.caption;
-    console.log('captioN:', caption);
-    console.log('typeof caption:', typeof caption);
     const image = this.fileInputRef.current.files[0];
-
-    console.log('image:', image);
-    console.log('typeof image:', typeof image);
 
     const formData = new FormData();
     formData.append('caption', caption);
