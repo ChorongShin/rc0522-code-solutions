@@ -32,8 +32,8 @@ function uniqueQuadratic(words) {
       c++                           // 2 * n^2 = O(n^2)
     ) {
       const comparing = words[c];   // 3 * n^2 = O(n^2)
-      if (comparing === word) {     // 1 * 1 = O(1)
-        isUnique = false;           // 1 * 1 = O(1)
+      if (comparing === word) {     // 1 * n^2 = O(n^2)
+        isUnique = false;           // 1 * n^2 = O(n^2)
       }
     }
     if (isUnique) {                 // 1 * 1 = O(1)
