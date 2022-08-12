@@ -32,8 +32,7 @@ export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
-      activeCount: null
+      count: 0
     };
     this.previousClick = this.previousClick.bind(this);
     this.nextClick = this.nextClick.bind(this);
@@ -56,7 +55,6 @@ export default class Carousel extends React.Component {
   }
 
   nextClick(event) {
-
     this.setState({
       count: this.state.count + 1
     });
@@ -69,7 +67,8 @@ export default class Carousel extends React.Component {
   }
 
   goToIndex(count) {
-    this.setState({ activeCount: count });
+    // console.log('goToIndex called, with count:', count);
+    this.setState({ count });
   }
 
   componentDidMount() {
@@ -77,8 +76,6 @@ export default class Carousel extends React.Component {
   }
 
   render() {
-    // console.log('state:', this.state);
-
     return (
       <div>
         <div className="page-container">
@@ -116,7 +113,7 @@ export default class Carousel extends React.Component {
                 key={pokemon.id}
                 id={pokemon.id}
                 className={`dot ${this.state.count === pokemon.id ? 'on' : ''}`}
-                onClick={() => this.goToIndex(this.state.activeCount)}
+                onClick={() => this.goToIndex(pokemon.id)}
                >
                 </span>
                 )
@@ -126,9 +123,6 @@ export default class Carousel extends React.Component {
             </div>
           </div>
         </div>
-
     );
   }
 }
-
-// if dot is clicked, move to that dot and change image
