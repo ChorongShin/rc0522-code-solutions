@@ -7,8 +7,20 @@ function graduate(credential) {
 const medicalSchool = graduate('M.D.');
 const lawSchool = graduate('Esq.');
 
-medicalSchool('Dan Abramov');
-lawSchool('Ryan Florence');
+const Dan = medicalSchool('Dan Abramov');
+const Ryan = lawSchool('Ryan Florence');
 
-console.log(medicalSchool('Dan Abramov'));
-console.log(lawSchool('Ryan Florence'));
+console.log(Dan);
+console.log(Ryan);
+
+/* ES 6 Version */
+const grad = credential => fullName => `${fullName}, ${credential}`;
+
+const med = grad('M.D.');
+const law = grad('Esq.');
+
+const lisa = med('Lisa Simpsom');
+const sheldon = law('Shendon Cooper');
+
+console.log(lisa);
+console.log(sheldon);
