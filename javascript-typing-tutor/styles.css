@@ -44,6 +44,19 @@
   border-bottom: solid red;
 }
 
+.total,
+.typing {
+  font-size: 1.3rem;
+}
+
+.errors {
+  color: red;
+}
+
+.accuracy {
+  color: #19cd1a;
+}
+
 /* modal */
 .modal {
   display: flex;
@@ -63,8 +76,8 @@
 
 .open-modal {
   font-family: sans-serif;
-  width: 450px;
-  height: 200px;
+  width: 500px;
+  height: 250px;
   padding-top: 45px;
   text-align: center;
   border-radius: 5px;
@@ -76,7 +89,6 @@
 }
 
 button.yes {
-  margin-top: 30px;
   padding: 0.5rem 2rem;
   font-size: 1.4rem;
   background-color: rgb(235 93 93);
@@ -105,7 +117,6 @@ button.yes {
 }
 
 button.no {
-  margin-top: 30px;
   padding: 0.5rem 2rem;
   font-size: 1.4rem;
   background-color: rgb(74 74 232);
